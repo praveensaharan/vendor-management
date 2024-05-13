@@ -5,7 +5,7 @@ import logo from "../assets/ven.png";
 
 function Login() {
   const navigate = useNavigate();
-  const [notice, setNotice] = useState(""); // Initialize notice state
+  const [notice, setNotice] = useState("");
 
   const googleSignIn = async () => {
     const auth = getAuth();
@@ -13,11 +13,9 @@ function Login() {
 
     try {
       const result = await signInWithPopup(auth, provider);
-      // Handle the successful sign-in here
       const user = result.user;
-      navigate("/"); // Navigate to the desired page after successful sign-in
+      navigate("/");
     } catch (error) {
-      // Handle sign-in error
       const errorCode = error.code;
       const errorMessage = error.message;
       console.error(errorCode, errorMessage);
